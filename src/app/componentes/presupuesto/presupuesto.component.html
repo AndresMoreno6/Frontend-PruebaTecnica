@@ -1,10 +1,15 @@
 <p>presupuesto works!</p>
 
+<!-- {{selectedPais}} y {{selectedCiudad}} -->
+
+
+{{selectedPais?.nombre}}
 <p>Ingrese su presupuesto</p>
 
-<input type="number">
+<input type="number" [(ngModel)]="presupuesto" id="presupuesto">
 
 <br>
 <br>
 
-<button routerLink="['/Inicio']">Atras</button> | <button routerLink="['']">Siguiente</button>
+<button [routerLink]="['/Inicio']">Atras</button> | <button (click)="conversion()" (click)="guardar()" >Siguiente</button>
+<!-- [routerLink]="['/resumen']" -->
