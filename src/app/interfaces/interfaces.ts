@@ -13,10 +13,11 @@ export interface Ciudad {
 
 export interface Historial{
   id: number;
-  pais_id: number;
+  pais_id: Pais[];
   ciudad_id: number;
   presupuesto_cop: number;
   presupuesto_local: number;
   clima: string;
   fecha: string;
+  tasa_cambio: string;
 }

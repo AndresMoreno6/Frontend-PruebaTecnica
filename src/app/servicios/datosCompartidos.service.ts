@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Ciudad, Pais } from '../interfaces/interfaces';
+import { Ciudad, Historial, Pais } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,7 @@ export class DatosCompartidosService {
 
   selectPais: Pais | null = null;
   selectCiudad: Ciudad | null = null;
+  historialId: Historial | null = null;
 
   constructor() { }
 
@@ -27,7 +28,13 @@ export class DatosCompartidosService {
     return this.selectCiudad;
   }
 
+  setHistorialId(id: Historial): void {
+    this.historialId = id;
+  }
 
+  getHistorialId(): Historial | null {
+    return this.historialId;
+  }
 
 
 }

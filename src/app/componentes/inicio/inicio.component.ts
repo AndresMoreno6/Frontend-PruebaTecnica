@@ -1,10 +1,10 @@
 import { FormsModule } from '@angular/forms';
-import { PaisService } from './../../servicios/pais.service';
+import { consumoApi } from '../../servicios/consumoAPI.service';
 import { Component } from '@angular/core';
 import { Ciudad, Pais } from '../../interfaces/interfaces';
 import { PresupuestoComponent } from '../presupuesto/presupuesto.component';
 import { RouterLink, Routes } from '@angular/router';
-import { DatosCompartidosService } from '../../servicios/datos-compartidos.service';
+import { DatosCompartidosService } from '../../servicios/datosCompartidos.service';
 import { Router } from '@angular/router';
 // import { NgModule } from '@angular/core';
 
@@ -22,7 +22,7 @@ export class InicioComponent {
   selectPais: Pais | null = null;
   selectCiudad: Ciudad | null = null;
 
-  constructor(private paisService: PaisService,
+  constructor(private consumoApi: consumoApi,
     private datosCompartidos: DatosCompartidosService,
     private router: Router) { }
 
@@ -30,8 +30,9 @@ export class InicioComponent {
     this.cargarPaises();
   }
 
+  //funcion para cargar los paises de la base de datos
   cargarPaises(): void {
-    this.paisService.getPais().subscribe((data) => {
+    this.consumoApi.getPais().subscribe((data) => {
       this.paises = data;
     },
       (error) => {
@@ -39,6 +40,8 @@ export class InicioComponent {
       }
     );
   }
+
+  //funcion para cargar los paises en los select
   obtenerPaises(): void {
     if (this.selectPais) {
       this.cargarCiudades(this.selectPais.id);
@@ -49,8 +52,9 @@ export class InicioComponent {
     this.selectCiudad = null;
   }
 
+  //funcion para cargar las ciudad dependiendeo del pais que se elija
   cargarCiudades(paisId: number): void {
-    this.paisService.getCiudadesPorPais(paisId).subscribe(
+    this.consumoApi.getCiudadesPorPais(paisId).subscribe(
       (data) => {
         this.ciudades = data;
       },
@@ -60,11 +64,11 @@ export class InicioComponent {
     );
   }
 
+  //funcion para pasar a las siguiente venta, si el usuario selecciona un pais y una cidad
   siguiente(): void {
-    if (this.selectPais && this.selectCiudad) {
-      this.datosCompartidos.setSelectCiudad(this.selectCiudad);
+    if (this.selectPais && this.selectCiudad ) {
+      this.datosCompartidos.setSelectCiudad(this.selectCiudad); // Guardar la ciudad seleccionada en el servicio compartido
       this.router.navigate(["/presupuesto"]);
-      console.log(this.selectCiudad);// Guardar la ciudad seleccionada en el servicio compartido
     } else {
       alert('Por favor, selecciona un país y una ciudad antes de continuar.');
     }

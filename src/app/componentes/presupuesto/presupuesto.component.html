@@ -1,15 +1,18 @@
-<p>presupuesto works!</p>
+<div>
 
-<!-- {{selectedPais}} y {{selectedCiudad}} -->
+  <label class="mb-2 mt-5">Ingrese su presupuesto</label>
 
+  <input class="form-control mb-5" type="number" [(ngModel)]="presupuesto" id="presupuesto">
 
-{{selectedPais?.nombre}}
-<p>Ingrese su presupuesto</p>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <button class="btn btn-secondary" [routerLink]="['/Inicio']">Atras</button>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-success" (click)="conversion(); guardar()">Siguiente</button>
+      </div>
+    </div>
+  </div>
 
-<input type="number" [(ngModel)]="presupuesto" id="presupuesto">
-
-<br>
-<br>
-
-<button [routerLink]="['/Inicio']">Atras</button> | <button (click)="conversion()" (click)="guardar()" >Siguiente</button>
-<!-- [routerLink]="['/resumen']" -->
+</div>
