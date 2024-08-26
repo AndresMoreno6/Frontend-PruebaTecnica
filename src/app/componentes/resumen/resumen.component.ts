@@ -1,11 +1,9 @@
-import { Ciudad, Historial } from './../../interfaces/interfaces';
-import { consumoApi } from '../../servicios/consumoAPI.service';
 import { Component } from '@angular/core';
 import { PresupuestoComponent } from '../presupuesto/presupuesto.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { DatosCompartidosService } from '../../servicios/datosCompartidos.service';
-import { Pais } from '../../interfaces/interfaces';
+import { consumoApi } from '../../servicios/consumoApi.service';
 
 @Component({
   selector: 'app-resumen',
@@ -63,9 +61,6 @@ export class ResumenComponent {
             this.ciudades = ciudadEncontrada ? ciudadEncontrada.nombre : 'Desconocido';
           });
         }
-
-        // console.log('País:', this.paises);
-        // console.log('Ciudad:', this.ciudades);
       });
     }
   }

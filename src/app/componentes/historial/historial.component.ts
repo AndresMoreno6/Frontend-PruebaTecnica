@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { InicioComponent } from '../inicio/inicio.component';
-import { consumoApi } from '../../servicios/consumoAPI.service';
+import { consumoApi } from '../../servicios/consumoApi.service';
 
 @Component({
   selector: 'app-historial',

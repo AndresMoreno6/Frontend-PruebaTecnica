@@ -1,12 +1,11 @@
 import { FormsModule } from '@angular/forms';
-import { consumoApi } from '../../servicios/consumoAPI.service';
 import { Component } from '@angular/core';
 import { Ciudad, Pais } from '../../interfaces/interfaces';
 import { PresupuestoComponent } from '../presupuesto/presupuesto.component';
 import { RouterLink, Routes } from '@angular/router';
 import { DatosCompartidosService } from '../../servicios/datosCompartidos.service';
 import { Router } from '@angular/router';
-// import { NgModule } from '@angular/core';
+import { consumoApi } from '../../servicios/consumoApi.service';
 
 
 @Component({
