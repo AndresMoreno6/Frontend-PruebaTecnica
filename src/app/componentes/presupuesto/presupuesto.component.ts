@@ -6,12 +6,13 @@ import { Ciudad, Historial, Pais } from '../../interfaces/interfaces';
 import { DatosCompartidosService } from '../../servicios/datosCompartidos.service';
 import { FormsModule } from '@angular/forms';
 import { consumoApi } from '../../servicios/consumoApi.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-presupuesto',
   standalone: true,
-  imports: [InicioComponent, RouterModule, ResumenComponent, FormsModule],
+  imports: [InicioComponent, RouterModule, ResumenComponent, FormsModule, TranslateModule],
   templateUrl: './presupuesto.component.html',
   styleUrl: './presupuesto.component.css'
 })
@@ -27,8 +28,11 @@ export class PresupuestoComponent {
   constructor(
     private datosCompartidos: DatosCompartidosService,
     private consumoApi: consumoApi,
-    private router: Router
-  ) { }
+    private router: Router, private translateService: TranslateService
+  ) {
+    this.translateService.setDefaultLang('es');
+    this.translateService.use(localStorage.getItem('language') || 'es');
+  }
 
 
   ngOnInit(): void {

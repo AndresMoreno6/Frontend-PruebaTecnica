@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-auto">
       <div class="mb-5">
-        <h1>¡Resumen de tu Búsqueda! 📋🔍</h1>
+        <h1>{{'¡Resumen de tu Búsqueda!' | translate}}📋🔍</h1>
       </div>
     </div>
   </div>
@@ -11,19 +11,19 @@
     <div class="col-md-6">
       <ul class="list-group">
         <!-- <li class="list-group-item"><strong>ID:</strong> {{historial?.id}}</li> -->
-        <li class="list-group-item"><strong>Paíse:</strong> {{paises}}</li>
-        <li class="list-group-item"><strong>Ciudade:</strong> {{ciudades}}</li>
-        <li class="list-group-item"><strong>Presupuesto COP:</strong> {{historial?.presupuesto_cop}}</li>
-        <li class="list-group-item"><strong>Clima:</strong> {{historial?.clima}} °C</li>
-        <li class="list-group-item"><strong>Presupuesto Local:</strong> {{historial?.presupuesto_local}}</li>
-        <li class="list-group-item"><strong>Tasa de Cambio:</strong> {{historial?.tasa_cambio}}</li>
+        <li class="list-group-item"><strong>{{'Paíse' | translate}}: </strong>{{paises | translate}}</li>
+        <li class="list-group-item"><strong>{{'Ciudad' | translate}}:</strong> {{ciudades}}</li>
+        <li class="list-group-item"><strong>{{'Presupuesto COP' | translate}}:</strong> {{historial?.presupuesto_cop}}</li>
+        <li class="list-group-item"><strong>{{'Clima' | translate}}:</strong> {{historial?.clima}} °C</li>
+        <li class="list-group-item"><strong>{{'Presupuesto Local' | translate}}:</strong> {{historial?.presupuesto_local}}</li>
+        <li class="list-group-item"><strong>{{'Tasa de Cambio' | translate}}:</strong> {{historial?.tasa_cambio}}</li>
       </ul>
     </div>
   </div>
 
   <div class="row justify-content-center mt-5">
     <div class="col-auto">
-      <button class="btn btn-dark" [routerLink]="['/inicio']">Inicio</button>
+      <button class="btn btn-dark" [routerLink]="['/inicio']">{{'Inicio' | translate}}</button>
     </div>
   </div>
 </div>

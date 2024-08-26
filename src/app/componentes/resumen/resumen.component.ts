@@ -4,23 +4,26 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { DatosCompartidosService } from '../../servicios/datosCompartidos.service';
 import { consumoApi } from '../../servicios/consumoApi.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-resumen',
   standalone: true,
-  imports: [PresupuestoComponent, RouterModule],
+  imports: [PresupuestoComponent, RouterModule, TranslateModule],
   templateUrl: './resumen.component.html',
   styleUrl: './resumen.component.css'
 })
 export class ResumenComponent {
 
   historial: any;
-  paises: string | undefined;
+  paises: string | any;
   ciudades: string | undefined;
 
 
   constructor(private router: Router, private route: ActivatedRoute,
-    private datosCompartidos: DatosCompartidosService, private consumoApi: consumoApi) {
+    private datosCompartidos: DatosCompartidosService, private consumoApi: consumoApi, private translateService: TranslateService) {
+    this.translateService.setDefaultLang('es');
+    this.translateService.use(localStorage.getItem('language') || 'es');
   }
 
 
@@ -64,6 +67,7 @@ export class ResumenComponent {
       });
     }
   }
+
 
 }
 

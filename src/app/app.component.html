@@ -5,33 +5,33 @@
 <body > -->
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand m-2" href="#">Prueba Tecnica</a>
+      <a class="navbar-brand m-2" >{{'Prueba tecnica' | translate}}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link m-2" [routerLink]="['/inicio']">Inicio</a>
+            <a class="nav-link m-2" [routerLink]="['/inicio']">{{'Inicio' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link m-2" [routerLink]="['/historial']">Historial</a>
+            <a class="nav-link m-2" [routerLink]="['/historial']">{{'Historial' | translate}}</a>
           </li>
         </ul>
         <div class="d-flex m-2">
-          <select class="form-select">
-            <option value="">Idioma</option>
-            <option value="es" >Español</option>
-            <option value="de" >Alemán</option>
+          <select class="form-select" (change)="onLanguageChange($event)">
+            <option value="es">{{'Idioma' | translate}}</option>
+            <option value="es" >{{'Español' | translate}}</option>
+            <option value="de" >{{'Aleman' | translate}}</option>
           </select>
         </div>
       </div>
     </nav>
 
   </div>
+
   <div class="container">
     <router-outlet></router-outlet>
-
   </div>
 
 

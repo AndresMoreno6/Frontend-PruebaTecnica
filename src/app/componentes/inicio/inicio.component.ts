@@ -6,13 +6,13 @@ import { RouterLink, Routes } from '@angular/router';
 import { DatosCompartidosService } from '../../servicios/datosCompartidos.service';
 import { Router } from '@angular/router';
 import { consumoApi } from '../../servicios/consumoApi.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [FormsModule, PresupuestoComponent, RouterLink],
+  imports: [FormsModule, PresupuestoComponent, RouterLink, TranslateModule],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
 })
@@ -25,8 +25,18 @@ export class InicioComponent {
   constructor(private consumoApi: consumoApi,
     private datosCompartidos: DatosCompartidosService,
     private router: Router, private translateService: TranslateService) {
+    this.translateService.setDefaultLang('es');
+    this.translateService.use(localStorage.getItem('language') || 'es');
+  }
 
 
+  onLanguageChange(event: any) {
+    const selectedLanguage = event.target.value;
+    this.translateService.use(selectedLanguage);
+    localStorage.setItem('language', selectedLanguage);
+
+    // Aquí puedes recargar o actualizar los países para reflejar la traducción
+    this.obtenerPaises();
   }
 
   ngOnInit(): void {
