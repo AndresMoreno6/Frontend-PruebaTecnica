@@ -6,6 +6,7 @@ import { RouterLink, Routes } from '@angular/router';
 import { DatosCompartidosService } from '../../servicios/datosCompartidos.service';
 import { Router } from '@angular/router';
 import { consumoApi } from '../../servicios/consumoApi.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -23,11 +24,15 @@ export class InicioComponent {
 
   constructor(private consumoApi: consumoApi,
     private datosCompartidos: DatosCompartidosService,
-    private router: Router) { }
+    private router: Router, private translateService: TranslateService) {
+
+
+  }
 
   ngOnInit(): void {
     this.cargarPaises();
   }
+
 
   //funcion para cargar los paises de la base de datos
   cargarPaises(): void {
@@ -65,7 +70,7 @@ export class InicioComponent {
 
   //funcion para pasar a las siguiente venta, si el usuario selecciona un pais y una cidad
   siguiente(): void {
-    if (this.selectPais && this.selectCiudad ) {
+    if (this.selectPais && this.selectCiudad) {
       this.datosCompartidos.setSelectCiudad(this.selectCiudad); // Guardar la ciudad seleccionada en el servicio compartido
       this.router.navigate(["/presupuesto"]);
     } else {
